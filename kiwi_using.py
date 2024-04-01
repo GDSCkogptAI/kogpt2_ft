@@ -11,3 +11,8 @@ vocab = pd.read_csv('C:/kogpt2_ft/user_dic.tsv', sep = '\t', header = None)
 vocab
 vocab.to_csv('C:/kogpt2_ft/vocab.csv')
 vocab
+import sentencepiece
+from transformers import PreTrainedTokenizerFast
+tokenizer = PreTrainedTokenizerFast.from_pretrained("skt/kogpt2-base-v2", bos_token='</s>', eos_token='</s>', unk_token='<unk>',
+  pad_token='<pad>', mask_token='<mask>')
+tokenizer.tokenize("DB하이텍의 유동비율 알려줘")
