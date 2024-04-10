@@ -1,16 +1,3 @@
-import train
-with torch.no_grad():
-    while 1:
-        q = input("user > ").strip()
-        if q == "quit":
-            break
-        a = ""
-        while 1:
-            input_ids = torch.LongTensor(tokenizer.encode(Q_TKN + q + SENT + sent + A_TKN + a)).unsqueeze(dim=0)
-            pred = model(input_ids)
-            pred = pred.logits
-            gen = tokenizer.convert_ids_to_tokens(torch.argmax(pred, dim=-1).squeeze().numpy().tolist())[-1]
-            if gen == EOS:
-                break
-            a += gen.replace("▁", " ")
-        print("Chatbot > {}".format(a.strip()))
+version https://git-lfs.github.com/spec/v1
+oid sha256:cca9f842d9b2d671d406e31756d513c47e6c43917a047a8d7f77340289dc3573
+size 616
