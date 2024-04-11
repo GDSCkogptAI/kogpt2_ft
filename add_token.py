@@ -1,16 +1,3 @@
-from transformers import PreTrainedTokenizerFast
-from transformers import GPT2LMHeadModel
-
-with open("C:/kogpt2_ft/new_list.txt", "r", encoding = "utf-8") as f:
-    lines = f.readlines()
-
-a = [line.strip() for line in lines]
-tokenizer = PreTrainedTokenizerFast.from_pretrained("skt/kogpt2-base-v2", bos_token = '</s>', eos_token = '</s>', unk_token = '<unk>', pad_token = '<pad>', mask_token = '<mask>')
-
-c_tokens = a
-tokenizer.add_tokens(c_tokens)
-tokenizer.save_pretrained("add_new_token")
-new_tokenizer = PreTrainedTokenizerFast.from_pretrained("add_new_token")
-model = GPT2LMHeadModel.from_pretrained("skt/kogpt2-base-v2")
-model.resize_token_embeddings(len(new_tokenizer))
-print(new_tokenizer.tokenize("DB하이텍의 유동비율은 얼마야?"))
+version https://git-lfs.github.com/spec/v1
+oid sha256:359c01049ae6669f65b1907253c4a64d73f7500d30a68f06d1a137c18468daa5
+size 766
